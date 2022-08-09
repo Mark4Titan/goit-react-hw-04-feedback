@@ -7,7 +7,7 @@ export const Marketing = ({ state }) => {
   const { good, neutral, bad } = state;
 
   // маркетенгова формула)))))))) додає 1/3 до позитивних відгуків від нейтральних.
-    const mTotal = Math.round((good + Math.floor(neutral / 3)) / (good + neutral + bad) * 100) +
+    const mTotal = Math.round((good + (neutral / 3)) / (good + neutral + bad) * 100) +
     '%';
 
   return (
@@ -19,5 +19,9 @@ export const Marketing = ({ state }) => {
 };
 
 export default Marketing;
+
+Marketing.propTypes = {
+    state: PropTypes.object,
+};
 
 
