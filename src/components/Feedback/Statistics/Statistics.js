@@ -1,11 +1,12 @@
 import { Box } from 'components/Box';
 import PropTypes from 'prop-types';
 
-
-export const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+export const Statistics = ({ total, options, positivePercentage }) => {
+  const { good, neutral, bad } = options;
   return (
-    <Box p={2} >
+    <Box p={2}>
       <Box as="h4">Statistics</Box>
+
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
@@ -15,12 +16,14 @@ export const Statistics = ({ good, neutral, bad, total, positivePercentage }) =>
   );
 };
 
-export default Statistics;
-
 Statistics.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
-  total: PropTypes.number,
-  positivePercentage: PropTypes.string,
+  options: PropTypes.shape({
+    bad: PropTypes.number.isRequired,
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+  }),
+  positivePercentage: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };
+
+export default Statistics;

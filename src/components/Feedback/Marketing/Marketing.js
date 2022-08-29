@@ -21,7 +21,7 @@ export const Marketing = ({ state }) => {
 export default Marketing;
 
 Marketing.propTypes = {
-    state: PropTypes.object,
-};
+  state: PropTypes.object
+}
 
 
